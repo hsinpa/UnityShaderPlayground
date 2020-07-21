@@ -50,9 +50,8 @@
             }
 
             float GetDist(float3 p) {
-                float d = length(p) - 0.1;
-                //d = length(float2(length(p.xz) - .5, p.y)) - .1;
-
+                //float d = length(p) - 0.5;
+                float d = length(float2(length(p.xz) - .4, p.y)) - .1;
 
                 return d;
             }
@@ -85,27 +84,25 @@
 
             fixed4 frag(v2f i) : SV_Target
             {
-                fixed4 tex = tex2D(_MainTex, i.uv);
 
                 float2 uv = i.uv - 0.5;
                 float3 ro = i.ro;
                 float3 rd = normalize(i.hitPos - ro);
                 
                 float d = Raymarch(ro, rd);
+                fixed4 tex = tex2D(_MainTex, i.uv);
                 fixed4 col = 0;
+                float m = dot(uv, uv);
 
                 if (d < MAX_DIST) {
-                    discard;
-                }
-                else {
-                    //float3 p = ro + rd * d;
-                    //float3 n = GetNormal(p);
+                    float3 p = ro + rd * d;
+                    float3 n = GetNormal(p);
 
-                    //col.rgb = n;
-
-                    return tex;
+                    col.rgb = n;
+                } else {
                 }
 
+                col = lerp(col, tex, smoothstep(.1, .2,m ) );
 
                 return col;
             }
