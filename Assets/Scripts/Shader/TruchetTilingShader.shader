@@ -39,10 +39,18 @@
                 return o;
             }
 
+            float DistLine(float2 p, float2 a, float2 b) {
+                float2 pa = p - a;
+                float2 ba = b - a;
+                float t = clamp(dot(pa, ba) / dot(ba, ba), 0.0, 1.0);
+
+                return length(pa - ba * t);
+            }
+
             float Hash21(float2 p) {
                 p = frac(p * float2(234.34, 435.345));
                 p += dot(p, p + 34.23);
-                return p;
+                return frac(p.x * p.y);
             }
 
             fixed4 frag (v2f i) : SV_Target
@@ -53,7 +61,7 @@
                 float2 gv = frac(uv) - 0.5;
                 float2 id = floor(uv);
 
-                float randomNumber = Hash21(id);
+                float randomNumber = Hash21(uv);
                 float4 col = float4(0, 0, 0, 1);
 
                 float lineWidth = 0.1;
