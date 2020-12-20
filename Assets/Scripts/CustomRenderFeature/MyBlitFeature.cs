@@ -19,11 +19,8 @@ public class MyBlitFeature : ScriptableRendererFeature
     RenderTargetHandle renderTextureHandle;
     MyBlitRenderPass myRenderPass;
 
-    private Camera _mainCamera;
-
     public override void Create()
     {
-        _mainCamera = Camera.main;
         myRenderPass = new MyBlitRenderPass(
           "My custom pass",
           settings.WhenToInsert,
@@ -44,7 +41,7 @@ public class MyBlitFeature : ScriptableRendererFeature
         // In this case we're getting the camera's color buffer target
         var cameraColorTargetIdent = renderer.cameraColorTarget;
 
-        myRenderPass.Setup(cameraColorTargetIdent, _mainCamera);
+        myRenderPass.Setup(cameraColorTargetIdent);
 
         // Ask the renderer to add our pass.
         // Could queue up multiple passes and/or pick passes to use
