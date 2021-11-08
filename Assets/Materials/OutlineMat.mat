@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-2047552274988889599
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 4
 --- !u!21 &2100000
 Material:
   serializedVersion: 6
@@ -20,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Hair_Mat
-  m_Shader: {fileID: -6465566751694194690, guid: 900801a5be296fc49822d2a7dcc74a14, type: 3}
+  m_Name: OutlineMat
+  m_Shader: {fileID: 4800000, guid: cbb5f078c8af003449884bc59a96a6a7, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -32,30 +19,6 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - MainTexture:
-        m_Texture: {fileID: 2800000, guid: ac3a28d96f7bb2f488c0aa7ff6c694ab, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - MetallicMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - Normals:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - OcclusionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - RampMask:
-        m_Texture: {fileID: 2800000, guid: 1a00f3f9b86c1104abbdb09e979c7644, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - RampTexture:
-        m_Texture: {fileID: 2800000, guid: 2cd8414d4d203b946a0d8efc0e6e5b73, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -114,15 +77,6 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - MetalicBlend: 1
-    - MetallicStatic: 0
-    - NormalBlend: 0
-    - RampThreshold: 0.8
-    - RimStrength: 0.32
-    - Smoothness: 0
-    - SpecularPower: 48
-    - SpecularStrength: 0.35
-    - Vector1_e16f1f9d6d3547eda3c35da2ce4834c4: 6.7
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -139,6 +93,7 @@ Material:
     - _GlossyReflections: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
+    - _OutlineWidth: 0
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
@@ -150,14 +105,22 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - AmbientLight: {r: 0.1792453, g: 0.1792453, b: 0.1792453, a: 1}
-    - Color_4bfef1453eec4f0db978a7ef47ac82da: {r: 1, g: 1, b: 1, a: 1}
-    - Color_71d455028e094964bbf946479c9875a9: {r: 0.754717, g: 0.6337177, b: 0.55891776, a: 1}
-    - LightColor: {r: 1, g: 1, b: 1, a: 1}
-    - MainLightDirection: {r: 14.34, g: 47.72, b: 7.32, a: 0}
-    - SpecularColor: {r: 1, g: 0.6351174, b: 0.2971698, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _OutlineColor: {r: 0.3207547, g: 0.16941543, b: 0.016642934, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
+--- !u!114 &7642386031742491955
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 4
